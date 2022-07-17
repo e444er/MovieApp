@@ -9,6 +9,7 @@ import androidx.lifecycle.coroutineScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.e444er.movie.R
 import com.e444er.movie.databinding.HomeFragmentBinding
+import com.e444er.movie.presentation.fragments.home.toprating.TopRatingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,15 +18,29 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
     private val binding by viewBinding(HomeFragmentBinding::bind)
     private val viewModel: MovieViewModel by viewModels()
     private lateinit var _adapter: ListAdapter
+    private lateinit var _topRatingAdapter: TopRatingAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         binding.rvPopular.apply {
             _adapter = ListAdapter()
             adapter = _adapter
             setHasFixedSize(true)
         }
 
+        binding.rvTopRating.apply {
+            _topRatingAdapter = TopRatingAdapter()
+            adapter = _topRatingAdapter
+            setHasFixedSize(true)
+        }
+
+        getListLife()
+        getTopRatingLife()
+    }
+
+    private fun getListLife() {
         lifecycle.coroutineScope.launchWhenCreated {
             viewModel.trendingMovies.collect { it ->
                 if (it.isLoading) {
@@ -40,6 +55,27 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
                     binding.progressBar.isVisible = false
                     binding.rvPopular.isVisible = true
                     _adapter.differ.submitList(it.toMutableList())
+                }
+            }
+        }
+
+    }
+
+    private fun getTopRatingLife() {
+        lifecycle.coroutineScope.launchWhenCreated {
+            viewModel.topMovies.collect { it ->
+                if (it.isLoading) {
+                    binding.progressBar.isVisible = true
+                    binding.rvPopular.isVisible = false
+                }
+                if (it.error.isNotBlank()) {
+                    binding.progressBar.isVisible = false
+                    binding.rvPopular.isVisible = false
+                }
+                it.data?.let {
+                    binding.progressBar.isVisible = false
+                    binding.rvPopular.isVisible = true
+                    _topRatingAdapter.differ.submitList(it.toMutableList())
                 }
             }
         }

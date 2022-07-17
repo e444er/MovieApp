@@ -6,4 +6,6 @@ interface MovieRepository {
 
     suspend fun getMovieList(): MovieListDTO
 
+    suspend fun getTopRating(): MovieListDTO
+
 }

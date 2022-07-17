@@ -35,6 +35,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                style="@style/TitleDayNight"
+                android:text="@string/top_rating_movies" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopRating"
+                style="@style/RecyclerView"
+                tools:listitem="@layout/movie_item" />
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

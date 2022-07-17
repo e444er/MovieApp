@@ -6,9 +6,11 @@
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.238" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/favorite_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/home_fragment.xml" value="0.176" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/home_fragment.xml" value="0.1" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/movie_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/search_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/toprating_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/toprating_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/menu/main_menu.xml" value="0.253125" />
       </map>
     </option>

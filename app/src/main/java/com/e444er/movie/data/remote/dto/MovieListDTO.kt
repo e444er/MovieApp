@@ -12,8 +12,6 @@ data class MovieListDTO(
     val totalResults: Int
 )
 
-internal fun MovieListDTO.toMovieList() = MovieList(results.map { it.toMovie() }, totalResults)
-
 data class MovieDTO(
     @SerializedName("character")
     val character: String?,
@@ -32,9 +30,3 @@ data class MovieDTO(
     @SerializedName("vote_average")
     val voteAverage: Double
 )
-
-fun MovieDTO.toMovie(): Movie {
-    return Movie(
-       character, id, job, overview, posterPath, releaseDate, title, voteAverage
-    )
-}

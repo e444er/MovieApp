@@ -8,14 +8,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetListUseCase @Inject constructor(
+class GetTopRatingUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
 
     operator fun invoke(): Flow<Resource<List<Movie>>> = flow {
         try {
             emit(Resource.Loading())
-            val data = movieRepository.getMovieList()
+            val data = movieRepository.getTopRating()
             val domainData =
                 if (data.results.isNotEmpty()) data.results
                     .map { it.toMovie() } else emptyList()

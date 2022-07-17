@@ -1,4 +1,4 @@
-package com.e444er.movie.presentation.fragments.home
+package com.e444er.movie.presentation.fragments.home.toprating
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,13 +9,14 @@ import com.bumptech.glide.Glide
 import com.e444er.movie.R
 import com.e444er.movie.common.Constants
 import com.e444er.movie.databinding.MovieItemBinding
+import com.e444er.movie.databinding.TopratingItemBinding
 import com.e444er.movie.domain.model.Movie
 
-class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class TopRatingAdapter : RecyclerView.Adapter<TopRatingAdapter.MyViewHolder>() {
 
     var onClickListener: ((Movie) -> Unit)? = null
 
-    class MyViewHolder(val binding: MovieItemBinding) :
+    class MyViewHolder(val binding: TopratingItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
@@ -33,7 +34,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            MovieItemBinding.inflate(
+            TopratingItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
