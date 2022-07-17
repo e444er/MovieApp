@@ -8,4 +8,6 @@ interface MovieRepository {
 
     suspend fun getTopRating(): MovieListDTO
 
+    suspend fun getTopWeek(): MovieListDTO
+
 }

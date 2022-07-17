@@ -40,7 +40,7 @@
 
     <dimen name="bottom_margin">16dp</dimen>
     <dimen name="bottom_margin_small">8dp</dimen>
-    <dimen name="bottom_margin_large">24dp</dimen>
+    <dimen name="bottom_margin_large">12dp</dimen>
 
     <dimen name="padding_close_button">16dp</dimen>
 

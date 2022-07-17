@@ -12,11 +12,15 @@ class MovieRepositoryImpl @Inject constructor(
 ) : MovieRepository {
 
     override suspend fun getMovieList(): MovieListDTO {
-        return  api.getMovieList(12)
+        return api.getMovieList(1)
     }
 
     override suspend fun getTopRating(): MovieListDTO {
         return api.getTopRating(1)
+    }
+
+    override suspend fun getTopWeek(): MovieListDTO {
+        return api.getWeek()
     }
 
 }

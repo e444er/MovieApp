@@ -10,4 +10,21 @@
         <item name="android:orientation">horizontal</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
     </style>
+
+    <style name="TitleParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/start_margin</item>
+        <item name="android:layout_marginEnd">@dimen/end_margin_small</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
 </resources>

@@ -10,20 +10,28 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.e444er.movie.R
 import com.e444er.movie.databinding.HomeFragmentBinding
 import com.e444er.movie.presentation.fragments.home.toprating.TopRatingAdapter
+import com.e444er.movie.presentation.fragments.home.topweek.TopWeekAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment:Fragment(R.layout.home_fragment) {
+class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val binding by viewBinding(HomeFragmentBinding::bind)
     private val viewModel: MovieViewModel by viewModels()
     private lateinit var _adapter: ListAdapter
     private lateinit var _topRatingAdapter: TopRatingAdapter
+    private lateinit var _topWeekAdapter: TopWeekAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getListLife()
+        getTopRatingLife()
+        getTopWeek()
+        rvList()
+    }
 
+    private fun rvList() {
         binding.rvPopular.apply {
             _adapter = ListAdapter()
             adapter = _adapter
@@ -36,8 +44,31 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
             setHasFixedSize(true)
         }
 
-        getListLife()
-        getTopRatingLife()
+        binding.rvTopWeek.apply {
+            _topWeekAdapter = TopWeekAdapter()
+            adapter = _topWeekAdapter
+            setHasFixedSize(true)
+        }
+    }
+
+    private fun getTopWeek() {
+        lifecycle.coroutineScope.launchWhenCreated {
+            viewModel.topWeek.collect { it ->
+                if (it.isLoading) {
+                    binding.progressBar.isVisible = true
+                    binding.rvTopWeek.isVisible = false
+                }
+                if (it.error.isNotBlank()) {
+                    binding.progressBar.isVisible = false
+                    binding.rvTopWeek.isVisible = false
+                }
+                it.data?.let {
+                    binding.progressBar.isVisible = false
+                    binding.rvTopWeek.isVisible = true
+                    _topWeekAdapter.differ.submitList(it.toMutableList())
+                }
+            }
+        }
     }
 
     private fun getListLife() {
@@ -58,7 +89,6 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
                 }
             }
         }
-
     }
 
     private fun getTopRatingLife() {
@@ -66,20 +96,19 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
             viewModel.topMovies.collect { it ->
                 if (it.isLoading) {
                     binding.progressBar.isVisible = true
-                    binding.rvPopular.isVisible = false
+                    binding.rvTopRating.isVisible = false
                 }
                 if (it.error.isNotBlank()) {
                     binding.progressBar.isVisible = false
-                    binding.rvPopular.isVisible = false
+                    binding.rvTopRating.isVisible = false
                 }
                 it.data?.let {
                     binding.progressBar.isVisible = false
-                    binding.rvPopular.isVisible = true
+                    binding.rvTopRating.isVisible = true
                     _topRatingAdapter.differ.submitList(it.toMutableList())
                 }
             }
         }
-
     }
 
 //    private fun setClick() {

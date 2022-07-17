@@ -18,6 +18,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_margin_large">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopWeek"
+                    style="@style/RecyclerView"
+                    tools:listitem="@layout/top_week" />
+
+
+                <androidx.cardview.widget.CardView
+                    style="@style/TitleParent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginBottom="1dp"
+                    app:cardCornerRadius="24dp">
+
+                    <TextView
+                        style="@style/Title"
+                        android:paddingStart="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="2dp"
+                        android:text="Title Trending" />
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+
             <TextView
                 style="@style/TitleDayNight"
                 android:text="@string/popular_movies" />

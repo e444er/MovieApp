@@ -17,4 +17,8 @@ interface MovieApi {
         @Query ("page") page: Int
     ): MovieListDTO
 
+
+    @GET("trending/movie/week?api_key=271236134afbbdcd24c3caaaab027824&language=ru-Ru")
+    suspend fun getWeek(): MovieListDTO
+
 }
