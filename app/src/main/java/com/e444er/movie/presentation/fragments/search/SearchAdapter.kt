@@ -1,24 +1,25 @@
-package com.e444er.movie.presentation.fragments.home.topweek
+package com.e444er.movie.presentation.fragments.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.e444er.movie.R
 import com.e444er.movie.common.Constants
+import com.e444er.movie.databinding.SearchItemBinding
 import com.e444er.movie.databinding.TopWeekBinding
 import com.e444er.movie.databinding.TopratingItemBinding
 import com.e444er.movie.domain.model.Movie
 
-class TopWeekAdapter : RecyclerView.Adapter<TopWeekAdapter.MyViewHolder>() {
+class SearchAdapter : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
     var onClickListener: ((Movie) -> Unit)? = null
 
-    class MyViewHolder(val binding: TopWeekBinding) :
+    class MyViewHolder(val binding: SearchItemBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 
     private class DifferCallback : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
@@ -34,7 +35,7 @@ class TopWeekAdapter : RecyclerView.Adapter<TopWeekAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            TopWeekBinding.inflate(
+            SearchItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
@@ -44,20 +45,14 @@ class TopWeekAdapter : RecyclerView.Adapter<TopWeekAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val dataId = differ.currentList[position]
         holder.binding.apply {
-            movieTitle.text = dataId.title
+            textSearch.text = dataId.title
             Glide.with(root)
                 .load(Constants.IMAGE_URL + dataId.posterPath)
                 .error(R.drawable.ic_baseline_error_24)
                 .centerCrop()
-                .into(imageHigh)
-            Glide.with(root)
-                .load(Constants.IMAGE_URL + dataId.posterPath)
-                .error(R.drawable.ic_baseline_error_24)
-                .centerCrop()
-                .into(imageHighAlpha)
-            dataTime.text = dataId.releaseDate
-            summary.text = dataId.overview
-            textRating.text = dataId.voteAverage.toString()
+                .into(imageSearch)
+            textSearchDate.text = dataId.releaseDate
+            textSearchRating.text = dataId.voteAverage.toString()
         }
 
         holder.binding.root.setOnClickListener {

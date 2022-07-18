@@ -15,6 +15,8 @@ import com.e444er.movie.domain.model.Movie
 
 class ListAdapter : PagingDataAdapter<Movie, ListAdapter.MyViewHolder>(ARTICLE_DIFF_CALLBACK) {
 
+    var onClickListener: ((Movie) -> Unit)? = null
+
     class MyViewHolder(val binding: MovieItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -39,6 +41,12 @@ class ListAdapter : PagingDataAdapter<Movie, ListAdapter.MyViewHolder>(ARTICLE_D
                 .into(imagePopular)
             textPopularYear.text = dataId?.releaseDate
             textPopularRating.text = dataId?.voteAverage.toString()
+        }
+
+        holder.binding.root.setOnClickListener {
+            if (dataId != null) {
+                onClickListener?.invoke(dataId)
+            }
         }
 
     }

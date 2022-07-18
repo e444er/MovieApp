@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.e444er.movie.R
 import com.e444er.movie.databinding.HomeFragmentBinding
@@ -48,6 +49,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         getTopWeek()
         rvList()
+        setClick()
     }
 
     private fun rvList() {
@@ -87,6 +89,23 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                     _topWeekAdapter.differ.submitList(it.toMutableList())
                 }
             }
+        }
+    }
+
+    private fun setClick() {
+        _topWeekAdapter.onClickListener = {
+            val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it)
+            findNavController().navigate(nav)
+        }
+
+        _adapter.onClickListener = {
+            val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it)
+            findNavController().navigate(nav)
+        }
+
+        _topRatingAdapter.onClickListener = {
+            val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it)
+            findNavController().navigate(nav)
         }
     }
 

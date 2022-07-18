@@ -15,5 +15,7 @@ class MovieRepositoryImpl @Inject constructor(
         return api.getWeek()
     }
 
-
+    override suspend fun getSearch(name: String): MovieListDTO {
+        return api.searchMovie(name)
+    }
 }

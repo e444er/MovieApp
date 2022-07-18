@@ -4,8 +4,6 @@
     <style name="RecyclerView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/top_margin_small</item>
-        <item name="android:layout_marginBottom">@dimen/bottom_margin_large</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:orientation">horizontal</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>

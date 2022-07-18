@@ -9,5 +9,18 @@
         android:id="@+id/searchFragment"
         android:name="com.e444er.movie.presentation.fragments.search.SearchFragment"
         android:label="search_fragment"
-        tools:layout="@layout/search_fragment" />
+        tools:layout="@layout/search_fragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.e444er.movie.presentation.fragments.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="movieId"
+            app:argType="com.e444er.movie.domain.model.Movie" />
+    </fragment>
 </navigation>
