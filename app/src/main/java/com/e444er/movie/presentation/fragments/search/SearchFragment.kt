@@ -30,8 +30,6 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
     private val viewModel: SearchViewModel by viewModels()
     private val _adapter by lazy { SearchAdapter() }
 
-
-
     @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,7 +61,7 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
         lifecycle.coroutineScope.launchWhenCreated {
             viewModel.searchMovie.collect { it ->
                 if (it.isLoading) {
-                    binding.progressBar2.isVisible = true
+                    binding.progressBar2.isVisible = false
                     binding.rvSearch.isVisible = false
                 }
                 if (it.error.isNotBlank()) {
