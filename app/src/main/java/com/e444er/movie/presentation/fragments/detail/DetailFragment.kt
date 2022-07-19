@@ -2,7 +2,9 @@ package com.e444er.movie.presentation.fragments.detail
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
@@ -10,6 +12,7 @@ import com.e444er.movie.R
 import com.e444er.movie.common.Constants
 import com.e444er.movie.databinding.DetailFragmentBinding
 import com.e444er.movie.domain.model.Movie
+import com.e444er.movie.presentation.fragments.favorite.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.e444er.movie.presentation.fragments.detail.DetailFragmentArgs as DetailFragmentArgs1
 
@@ -18,11 +21,24 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
 
     private val binding by viewBinding(DetailFragmentBinding::bind)
     private val args: DetailFragmentArgs1 by navArgs()
+    private val viewModel: FavoriteViewModel by viewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         uiBind(args.movieId)
+
+
+        binding.checkBox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                viewModel.addMovies(args.movieId)
+            } else {
+                viewModel.deleteMovies(args.movieId)
+            }
+        }
+
     }
+
 
     private fun uiBind(movieId: Movie) {
         binding.apply {

@@ -16,7 +16,7 @@
 
     <item
         android:id="@id/favorite_nav"
-        android:icon="@drawable/ic_favorite"
+        android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Favorite"
         app:showAsAction="ifRoom" />
 </menu>
