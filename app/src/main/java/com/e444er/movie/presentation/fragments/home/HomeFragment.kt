@@ -24,9 +24,9 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val binding by viewBinding(HomeFragmentBinding::bind)
     private val viewModel: MovieViewModel by viewModels()
-    private lateinit var _adapter: ListAdapter
-    private lateinit var _topRatingAdapter: TopRatingAdapter
-    private lateinit var _topWeekAdapter: TopWeekAdapter
+    private val _adapter by lazy { ListAdapter() }
+    private val _topRatingAdapter by lazy { TopRatingAdapter() }
+    private val _topWeekAdapter by lazy { TopWeekAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,19 +54,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private fun rvList() {
         binding.rvPopular.apply {
-            _adapter = ListAdapter()
             adapter = _adapter
             setHasFixedSize(true)
         }
 
         binding.rvTopRating.apply {
-            _topRatingAdapter = TopRatingAdapter()
             adapter = _topRatingAdapter
             setHasFixedSize(true)
         }
 
         binding.rvTopWeek.apply {
-            _topWeekAdapter = TopWeekAdapter()
             adapter = _topWeekAdapter
             setHasFixedSize(true)
         }
@@ -86,7 +83,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 it.data?.let {
                     binding.progressBar.isVisible = false
                     binding.rvTopWeek.isVisible = true
-                    _topWeekAdapter.differ.submitList(it.toMutableList())
+                    _topWeekAdapter.differ.submitList(it)
                 }
             }
         }

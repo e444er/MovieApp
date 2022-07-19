@@ -11,7 +11,11 @@ import com.e444er.movie.data.paging.TopRatingPagingSource
 import com.e444er.movie.data.remote.api.MovieApi
 import com.e444er.movie.domain.usecase.GetTopWeekUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,7 +25,7 @@ class MovieViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _topWeek = MutableStateFlow(MovieState())
-    val topWeek: StateFlow<MovieState> = _topWeek.asStateFlow()
+    val topWeek: StateFlow<MovieState> = _topWeek
 
     val listPaging = Pager(PagingConfig(pageSize = 1)) {
         MovieListPagingSource(api)
@@ -38,20 +42,22 @@ class MovieViewModel @Inject constructor(
     }
 
     private fun getWeek() {
-        getTopWeekUseCase().onEach { result ->
-            when (result) {
-                is Resource.Success -> {
-                    _topWeek.value = MovieState(data = result.data)
-                }
-                is Resource.Error -> {
-                    _topWeek.value = MovieState(
-                        error = result.message ?: "An unexpected error occurred"
-                    )
-                }
-                is Resource.Loading -> {
-                    _topWeek.value = MovieState(isLoading = true)
+        viewModelScope.launch(Dispatchers.IO) {
+            getTopWeekUseCase().collect { result ->
+                when (result) {
+                    is Resource.Loading -> {
+                        _topWeek.value = MovieState(isLoading = true)
+                    }
+                    is Resource.Error -> {
+                        _topWeek.value = MovieState(
+                            error = result.message ?: "An unexpected error occurred"
+                        )
+                    }
+                    is Resource.Success -> {
+                        _topWeek.value = MovieState(data = result.data)
+                    }
                 }
             }
-        }.launchIn(viewModelScope)
+        }
     }
 }

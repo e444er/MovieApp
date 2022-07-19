@@ -16,8 +16,11 @@ import com.e444er.movie.R
 import com.e444er.movie.common.textChangeFlow
 import com.e444er.movie.databinding.SearchFragmentBinding
 import com.e444er.movie.presentation.fragments.home.HomeFragmentDirections
+import com.e444er.movie.presentation.fragments.home.ListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 
 @AndroidEntryPoint
@@ -25,15 +28,18 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
 
     private val binding by viewBinding(SearchFragmentBinding::bind)
     private val viewModel: SearchViewModel by viewModels()
-    private lateinit var _adapter: SearchAdapter
+    private val _adapter by lazy { SearchAdapter() }
 
+
+
+    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         getSearch()
         rvList()
         binding.editSearch.textChangeFlow()
-            .debounce(500)
+            .debounce(300)
             .distinctUntilChanged()
             .mapLatest { viewModel.searchName(it) }
             .flowOn(Dispatchers.IO)
@@ -45,7 +51,6 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
 
     private fun rvList() {
         binding.rvSearch.apply {
-            _adapter = SearchAdapter()
             layoutManager = StaggeredGridLayoutManager(
                 3, StaggeredGridLayoutManager.VERTICAL
             )
@@ -53,7 +58,6 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
             setHasFixedSize(true)
         }
     }
-
 
     private fun getSearch() {
         lifecycle.coroutineScope.launchWhenCreated {
@@ -69,7 +73,7 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
                 it.data?.let {
                     binding.progressBar2.isVisible = false
                     binding.rvSearch.isVisible = true
-                    _adapter.differ.submitList(it.toMutableList())
+                    _adapter.differ.submitList(it)
                 }
             }
         }
@@ -80,5 +84,6 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
             findNavController().navigate(nav)
         }
     }
+
 
 }
