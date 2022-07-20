@@ -5,11 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.e444er.movie.R
 import com.e444er.movie.databinding.FavoriteFragmentBinding
-import com.e444er.movie.presentation.fragments.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,12 +38,4 @@ class FavoriteFragment : Fragment(R.layout.favorite_fragment) {
             setHasFixedSize(true)
         }
     }
-
-//    private fun setClick() {
-//        _adapter.onClickListener = {
-//            val view = viewModel.getMoviesId(it)
-//            val nav = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment3()
-//            findNavController().navigate(nav)
-//        }
-//    }
 }

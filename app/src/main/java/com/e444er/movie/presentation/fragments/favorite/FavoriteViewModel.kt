@@ -45,7 +45,6 @@ class FavoriteViewModel @Inject constructor(
         }
     }
 
-
      fun getMoviesId(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             getMovieIdUseCase(id)
