@@ -1,5 +1,7 @@
 package com.e444er.movie.presentation.fragments.favorite
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.e444er.movie.domain.model.Movie
@@ -23,9 +25,17 @@ class FavoriteViewModel @Inject constructor(
     private val getMovieAddUseCase: GetMovieAddUseCase,
 ) :ViewModel(){
 
-
     private val _favoriteMovies = MutableStateFlow(emptyList<Movie>())
     val favoriteMovies get()  = _favoriteMovies.asStateFlow()
+
+    private val _saveMovies = MutableLiveData<Boolean>(false)
+    val saveMovies: LiveData<Boolean>  = _saveMovies
+
+
+    fun isClick(click: Boolean){
+        _saveMovies.value = click
+    }
+
 
     fun getMovies() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -34,6 +44,7 @@ class FavoriteViewModel @Inject constructor(
             }
         }
     }
+
 
      fun getMoviesId(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -47,6 +58,8 @@ class FavoriteViewModel @Inject constructor(
             getMovies()
         }
     }
+
+
 
     fun addMovies(movie:Movie) {
         viewModelScope.launch(Dispatchers.IO) {

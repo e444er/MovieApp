@@ -15,7 +15,6 @@ import com.e444er.movie.domain.model.Movie
 class TopWeekAdapter : RecyclerView.Adapter<TopWeekAdapter.MyViewHolder>() {
 
     var onClickListener: ((Movie) -> Unit)? = null
-    var onClickFl: ((Movie) -> Unit)? = null
 
     class MyViewHolder(val binding: TopWeekBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -59,10 +58,6 @@ class TopWeekAdapter : RecyclerView.Adapter<TopWeekAdapter.MyViewHolder>() {
             dataTime.text = dataId.releaseDate
             summary.text = dataId.overview
             textRating.text = dataId.voteAverage.toString()
-
-            fabTrailer.setOnClickListener {
-                onClickFl?.invoke(dataId)
-            }
         }
 
         holder.binding.root.setOnClickListener {

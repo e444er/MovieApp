@@ -8,7 +8,7 @@
     android:layout_marginBottom="4dp"
     android:clipToPadding="false"
     android:orientation="vertical"
-    android:background="#CAC1C1"
+    android:background="#1A2663"
     android:padding="1dp">
 
     <androidx.cardview.widget.CardView
@@ -34,6 +34,7 @@
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="Title" />
@@ -50,7 +51,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-light"
             android:maxLength="4"
-            android:text="Movie"
+            android:textColor="@color/white"
             tools:text="2022" />
 
 
@@ -60,6 +61,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/textview_drawable_padding"
             android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
             app:drawableStartCompat="@drawable/ic_baseline_star_24"
             tools:text="0.0" />
 

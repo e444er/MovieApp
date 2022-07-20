@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#0C112C"
     tools:context=".presentation.fragments.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -42,8 +42,10 @@
                         android:paddingStart="8dp"
                         android:paddingTop="2dp"
                         android:paddingEnd="8dp"
+                        android:textColor="@color/white"
+                        android:background="#1A2663"
                         android:paddingBottom="2dp"
-                        android:text="Title Trending" />
+                        android:text="@string/title_trending" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -52,6 +54,7 @@
 
             <TextView
                 style="@style/TitleDayNight"
+                android:textColor="@color/white"
                 android:text="@string/popular_movies" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +72,7 @@
 
             <TextView
                 style="@style/TitleDayNight"
+                android:textColor="@color/white"
                 android:text="@string/top_rating_movies" />
 
             <androidx.recyclerview.widget.RecyclerView

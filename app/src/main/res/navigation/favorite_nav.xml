@@ -9,5 +9,18 @@
         android:id="@+id/favoriteFragment"
         android:name="com.e444er.movie.presentation.fragments.favorite.FavoriteFragment"
         android:label="favorite_fragment"
-        tools:layout="@layout/favorite_fragment" />
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragment3"
+            app:destination="@id/detailFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment3"
+        android:name="com.e444er.movie.presentation.fragments.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="movieId"
+            app:argType="com.e444er.movie.domain.model.Movie" />
+    </fragment>
 </navigation>

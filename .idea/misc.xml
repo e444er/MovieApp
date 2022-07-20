@@ -4,25 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2295" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2595" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.2595" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2295" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_favorite_border.xml" value="0.2355" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_movie_24.xml" value="0.2295" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.238" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_baseline_subtitles_24.xml" value="0.2295" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_favorite.xml" value="0.2355" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_favorite_border.xml" value="0.2295" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_favorite_false.xml" value="0.2355" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_home.xml" value="0.2295" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/ic_search.xml" value="0.2295" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/nav_shape.xml" value="0.13" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/search_selector.xml" value="0.13" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/drawable/selector_fav_item.xml" value="0.1" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/detail_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/favorite_fragment.xml" value="0.176" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/favorite_item.xml" value="0.1" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/home_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/favorite_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/favorite_item.xml" value="0.264" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/item.xml" value="0.2269021739130435" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/movie_item.xml" value="0.1" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/movie_item.xml" value="0.536" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/search_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/search_item.xml" value="0.4" />
-        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/top_week.xml" value="0.1" />
+        <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/top_week.xml" value="0.2" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/toprating_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/layout/toprating_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/droid/AndroidStudioProjects/Movie/app/src/main/res/menu/main_menu.xml" value="0.253125" />

@@ -13,8 +13,6 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.e444er.movie.R
 import com.e444er.movie.databinding.HomeFragmentBinding
-import com.e444er.movie.presentation.fragments.favorite.FavoriteAdapter
-import com.e444er.movie.presentation.fragments.favorite.FavoriteViewModel
 import com.e444er.movie.presentation.fragments.home.toprating.TopRatingAdapter
 import com.e444er.movie.presentation.fragments.home.topweek.TopWeekAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +24,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val binding by viewBinding(HomeFragmentBinding::bind)
     private val viewModel: MovieViewModel by viewModels()
-    private val viewModelFav: FavoriteViewModel by viewModels()
     private val _adapter by lazy { ListAdapter() }
     private val _topRatingAdapter by lazy { TopRatingAdapter() }
     private val _topWeekAdapter by lazy { TopWeekAdapter() }
@@ -106,9 +103,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         _topRatingAdapter.onClickListener = {
             val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it)
             findNavController().navigate(nav)
-        }
-        _topWeekAdapter.onClickFl = {
-            viewModelFav.addMovies(it)
         }
 
     }

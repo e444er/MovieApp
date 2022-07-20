@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Movie</string>
-    <string name="popular_movies">Popular Movies</string>
-    <string name="error_connection">Unable to fetch data, please check your internet connection and try again.</string>
-    <string name="error_service">API service is not responding at the moment, please try again later.</string>
-    <string name="error_unknown">Unknown error occurred.</string>
-    <string name="top_rating_movies">Top Rating Movies</string>
+    <string name="popular_movies">Популярные фильмы</string>
+    <string name="error_connection">Не удалось получить данные, пожалуйста, проверьте свое подключение к Интернету и повторите попытку.</string>
+    <string name="error_service">Служба API в данный момент не отвечает, пожалуйста, повторите попытку позже.</string>
+    <string name="error_unknown">Произошла неизвестная ошибка.</string>
+    <string name="top_rating_movies">Фильмы с самым высоким рейтингом</string>
+    <string name="title_trending">В тренде</string>
+    <string name="search">Поиск:</string>
+    <string name="summary">Сюжет фильма:</string>
+    <string name="ava">ava</string>
 </resources>

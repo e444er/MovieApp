@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/textview_drawable_padding"
                 android:textSize="@dimen/detail_brief_text_size"
+                android:textColor="@color/white"
                 app:drawableStartCompat="@drawable/ic_baseline_star_24"
                 tools:text="0.0" />
 
@@ -72,17 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/bottom_margin_large"
             android:ellipsize="end"
-            android:maxLines="4"
+            android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="@dimen/detail_brief_text_size"
             tools:text="Movie summary" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fabTrailer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="trending_trailer_button"
-            app:icon="@drawable/ic_baseline_star_24" />
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0C112C"
     tools:context=".presentation.fragments.detail.DetailFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -32,7 +33,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/ava" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
@@ -52,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
                 android:ellipsize="end"
                 android:textSize="32sp"
                 android:textStyle="bold"
@@ -69,11 +72,11 @@
                 android:id="@+id/textSearchDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-light"
                 android:maxLength="4"
-                android:text="Movie"
                 tools:text="2022" />
 
 
@@ -81,7 +84,8 @@
                 android:id="@+id/textSearchRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:drawablePadding="@dimen/textview_drawable_padding"
                 android:fontFamily="sans-serif-light"
@@ -93,8 +97,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="8dp"
                 android:maxLines="1"
-                android:text="Summary"
+                android:text="@string/summary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -102,7 +108,9 @@
                 android:id="@+id/textSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 tools:text="Summary" />

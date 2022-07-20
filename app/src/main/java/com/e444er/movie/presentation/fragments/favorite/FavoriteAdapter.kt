@@ -10,9 +10,6 @@ import com.bumptech.glide.Glide
 import com.e444er.movie.R
 import com.e444er.movie.common.Constants
 import com.e444er.movie.databinding.FavoriteItemBinding
-import com.e444er.movie.databinding.SearchItemBinding
-import com.e444er.movie.databinding.TopWeekBinding
-import com.e444er.movie.databinding.TopratingItemBinding
 import com.e444er.movie.domain.model.Movie
 
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {
@@ -54,10 +51,13 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {
                 .into(image)
             textDate.text = dataId.releaseDate
             textRating.text = dataId.voteAverage.toString()
-            textTime.text = dataId.character
+            textTime.text = dataId.overview
         }
 
-            onClickListener?.invoke(dataId)
+        holder.binding.root.setOnClickListener {
+            val nav = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment3(dataId)
+            holder.itemView.findNavController().navigate(nav)
+        }
 
     }
 
