@@ -15,11 +15,9 @@
 
 
 ### Screenshots
-<img src="hhttps://github.com/e444er/MovieApp/blob/master/app/sampledata/s1.jpg" width="200" /> <img src="hhttps://github.com/e444er/MovieApp/blob/master/app/sampledata/s2.jpg" width="200" />
-<img src="hhttps://github.com/e444er/MovieApp/blob/master/app/sampledata/s3.jpg" width="200" /> <img src="hhttps://github.com/e444er/MovieApp/blob/master/app/sampledata/s4.jpg" width="200" /> 
-<img src="hhttps://github.com/e444er/MovieApp/blob/master/app/sampledata/s5.jpg" width="200" /> 
-
-<img src="https://github.com/e444er/Foody/blob/master/app/src/main/res/drawable/q9.jpg" width="150" />
+<img src="https://github.com/e444er/MovieApp/blob/master/app/src/main/res/drawable/s1.jpg" width="200" /> <img src="https://github.com/e444er/MovieApp/blob/master/app/src/main/res/drawable/s2.jpg" width="200" /> 
+<img src="https://github.com/e444er/MovieApp/blob/master/app/src/main/res/drawable/s3.jpg" width="200" /> <img src="https://github.com/e444er/MovieApp/blob/master/app/src/main/res/drawable/s4.jpg" width="200" /> 
+<img src="https://github.com/e444er/MovieApp/blob/master/app/src/main/res/drawable/s5.jpg" width="200" /> 
 
 ## Libraries
 *   [ViewBinding](https://github.com/androidbroadcast/ViewBindingPropertyDelegate)
